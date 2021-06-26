@@ -1,0 +1,268 @@
+@import "variables";
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #00000052;
+    align-items: center;
+    justify-content: center;
+    display: none;
+
+    &--visible {
+        display: flex;
+    }
+
+    &-window {
+        min-width: 400px;
+        min-height: 400px;
+        display: flex;
+        flex-direction: column;
+        background: $bg-color;
+    }
+
+    &-form {
+        flex: 1;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+        input,
+        textarea {
+            background: #262626;
+            color: $font-color;
+            font-family: $font;
+            min-height: 1.5rem;
+            border: 2px solid transparent;
+            transition: border 0.2s;
+            width: 100%;
+            &:focus {
+                outline: 0;
+                border: 2px solid $font-color;
+            }
+        }
+
+        textarea {
+            resize: none;
+            box-sizing: border-box;
+        }
+
+        &-container {
+            width: 100%;
+            gap: 1rem;
+            display: flex;
+        }
+    }
+
+    &-buttons {
+        width: 100%;
+        display: flex;
+        .modal-button {
+            background: $unactive-color;
+            color: $font-color;
+            border: 0;
+            padding: 0.7rem 3rem 0.7rem 0.8rem;
+            line-height: 1;
+            cursor: pointer;
+            width: 50%;
+            text-align: left;
+            transition: 0.2s;
+            &:hover {
+                background: $unactive-color-hover;
+            }
+            &-save {
+                background: $action-color;
+                &:hover {
+                    background: $action-color-hover;
+                }
+            }
+
+            &:disabled {
+                color: $unactive-color;
+                background: $bg-color;
+            }
+        }
+    }
+
+    &-toggle {
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        gap: 0.5rem;
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+            &:checked {
+                ~ .styler {
+                    background-color: $action-color;
+                    &::before {
+                        left: 1.5rem;
+                    }
+                }
+            }
+        }
+        .styler {
+            width: 3rem;
+            height: 1.5rem;
+            border-radius: 1rem;
+            border: 2px solid transparent;
+            box-sizing: border-box;
+            display: block;
+            background-color: $unactive-color;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 1.2rem;
+                height: 1.2rem;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 1px;
+                border-radius: 1rem;
+                background-color: $font-color;
+                transition: 0.1s;
+            }
+        }
+    }
+
+    &-color-picker {
+        display: flex;
+        gap: 1rem;
+        .color-radio {
+            position: relative;
+            cursor: pointer;
+            user-select: none;
+
+            input {
+                position: absolute;
+                opacity: 0;
+                cursor: pointer;
+                height: 0;
+                width: 0;
+                &:checked {
+                    ~ .styler {
+                        border: 2px solid white;
+                    }
+                }
+            }
+
+            .styler {
+                width: 2rem;
+                height: 2rem;
+                border: 2px solid transparent;
+                border-radius: 1rem;
+                box-sizing: border-box;
+                display: block;
+            }
+        }
+    }
+
+    &-existing-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .tag {
+            display: flex;
+            align-items: center;
+            background: #262626;
+            border: 0;
+            border-radius: 20px;
+            color: $font-color;
+            height: 2rem;
+            padding: 0 8px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                background: lighten(#262626, 10);
+            }
+            img {
+                width: 16px;
+                height: 16px;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+
+    &-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .note-tag-container {
+            display: flex;
+            align-items: center;
+        }
+    }
+    .modal-small-btn {
+        width: 2rem;
+        height: 2rem;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border: 0;
+        font-size: 1.5rem;
+        background: $unactive-color;
+        color: $font-color;
+        transition: 0.2s;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover,
+        &:focus {
+            outline: 0;
+            background: $unactive-color-hover;
+        }
+
+        img {
+            width: 20px;
+        }
+
+        &--active {
+            background: $action-color;
+            &:hover,
+            &:focus {
+                outline: 0;
+                background: $action-color-hover;
+            }
+        }
+    }
+
+    .notification-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        display: none;
+        input {
+            box-sizing: border-box;
+            &::-webkit-calendar-picker-indicator {
+                filter: invert(1);
+            }
+        }
+        &--visible {
+            display: flex;
+            animation: notifEntrance 0.2s;
+            transform-origin: left;
+        }
+    }
+}
+
+@keyframes notifEntrance {
+    from {
+        transform: scaleX(0);
+        max-width: 0;
+    }
+    to {
+        transform: scaleX(1);
+        max-width: 100%;
+    }
+}
