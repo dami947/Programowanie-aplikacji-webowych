@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Cw-03 - pogodynka</title>
+</head>
+
+<body>
+  <video autoplay muted loop id="bgVideo" class="bg-video">
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2020-07/small_watermarked/06_1596083776_preview.webm" type="video/mp4">
+  </video>
+  <div class="toast" id="errorToast">
+    <p>Ooopsie, this city probably does not exist ¯\_(ツ)_/¯</p>
+  </div>
+  <main>
+    <div class="main" id="main">
+      <div class="current">
+        <img src="" alt="" id="mainIcon" class="main-icon">
+        <div class="main-temp">
+          <p id="mainTime"></p>
+          <div>
+            <p class="main-temp-current" id="mainTemp"></p>
+            <div>
+              <span class="main-temp-label">feels like</span>
+              <p class="main-temp-time" id="mainTempFeels"></p>
+              <span class="main-temp-label">wind</span>
+              <div class="main-wind">
+                <span id="mainWindSpeed"></span>
+                <img id="mainWindIcon" src='./assets/arrow.svg' />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main-info">
+          <h1 class="main-info-city" id="mainCity"></h1>
+          <p class="main-info-weather" id="mainWeather"></p>
+        </div>
+      </div>
+      <ul class="forecast" id="forecast">
+        <!-- render childs here -->
+      </ul>
+    </div>
+  </main>
+  <aside>
+    <form class="inputWrapper" id="weatherForm">
+      <input id="cityInput" class="input" type="text" placeholder="Add new city" />
+      <button id="cityButton" class="button" type="submit" disabled="true"></button>
+    </form>
+    <ul id="cityList" class="city-list">
+      <!-- render childs here -->
+    </ul>
+  </aside>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
