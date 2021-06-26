@@ -1,0 +1,6 @@
+.inputs-section input {
+    display: block;
+}
+.input-container {
+    display: flex;
+}
