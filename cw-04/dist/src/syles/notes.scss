@@ -1,0 +1,128 @@
+@import "variables";
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    width: 100%;
+
+    &:not(:empty) {
+        &:not(:last-of-type) {
+            padding-bottom: 1rem;
+            padding-top: 1rem;
+        }
+    }
+
+    &.notes--pinned {
+        .note {
+            &-pin {
+                opacity: 1;
+            }
+        }
+    }
+
+    .note {
+        width: 256px;
+        height: 256px;
+        padding: 0.5rem;
+        background: #262626;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        cursor: pointer;
+        border: 2px solid transparent;
+        box-sizing: border-box;
+        transition: 0.2s;
+        &-title {
+            font-size: 1.3rem;
+            padding: 4px;
+            margin-bottom: 10px;
+            max-width: 85%;
+        }
+        &-content {
+            font-size: 1rem;
+            overflow: auto;
+            flex: 1;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.1s;
+        }
+
+        &:focus {
+            outline: 0;
+            border: 2px solid $font-color;
+        }
+
+        &:hover {
+            &::after {
+                opacity: 0.05;
+            }
+            .note-pin,
+            .note-remove {
+                opacity: 1;
+            }
+        }
+
+        &-pin,
+        &-remove {
+            opacity: 0;
+            position: absolute;
+            width: 2rem;
+            height: 2rem;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            background: none;
+            border: 0;
+            padding: 4px;
+            transition: 0.1s;
+            cursor: pointer;
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        &-pin {
+            top: 0;
+            right: 0;
+        }
+
+        &-remove {
+            bottom: 0;
+            right: 0;
+        }
+
+        &-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+            gap: 4px;
+
+            li {
+                border-radius: 1rem;
+                font-size: 0.6rem;
+                padding: 4px;
+                background-color: rgba($bg-color, 0.5);
+            }
+        }
+
+        &-notif {
+            font-size: 0.7rem;
+            margin-bottom: 0.5rem;
+        }
+
+        time {
+            font-size: 0.7rem;
+        }
+    }
+}
