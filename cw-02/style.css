@@ -1,0 +1,208 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+    --color-bg-default: rgba(238,240,245,1);
+    --color-shadow: 12,13,18;
+    --color-light: 255, 255, 255;
+    background-color: var(--color-bg-default);
+    font-family: sans-serif;
+
+}
+
+main {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* drumkit buttons */
+
+.drumkit-buttons {
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.drumkit-buttons button {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    appearance: none;
+    padding: var(--space-xl) var(--space-4xl);
+    font-size: 18px;
+    font-family: var(--font-primary);
+    color: var(--color-typo-primary);
+    border: none;
+    border-radius: 14px;
+    background-color: var(--color-bg-default);
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-size: 100px;
+    text-transform: uppercase;
+    line-height: 0;
+    text-shadow: 0 -1px 0 rgba( var(--color-shadow), 0.08 ), 0 1px 0 rgba( var(--color-light), 1 );
+    box-shadow: inset 1px 1px 1px rgba( var(--color-light), 1 ), -2px -2px 2px rgba( var(--color-light), 0.9), -4px -4px 6px rgba( var(--color-light), 0.9), -8px -8px 16px rgba( var(--color-light), 0.9), -12px -12px 24px rgba( var(--color-light), 0.9), inset -1px -1px 1px rgba( var(--color-shadow), 0.06 ), 2px 2px 2px rgba( var(--color-shadow), 0.08), 4px 4px 6px rgba( var(--color-shadow), 0.08), 8px 8px 16px rgba( var(--color-shadow), 0.08), 12px 12px 24px rgba( var(--color-shadow), 0.08);
+    transition: color 0.3s, text-shadow 0.3s, box-shadow 0.6s;
+}
+
+.drumkit-buttons button span {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    z-index: -1;
+    border-radius: 50%;
+    border: 5px solid #fefeff;
+    animation: keyAnim 0.8s forwards;
+    pointer-events: none;
+}
+
+.drumkit-buttons button.playing {
+    box-shadow: 1px 1px 1px rgba( var(--color-light), 1 ), inset -2px -2px 2px rgba( var(--color-light), 0.9), inset -3px -3px 4px rgba( var(--color-light), 0.9), inset -6px -6px 12px rgba( var(--color-light), 0.9), inset -8px -8px 16px rgba( var(--color-light), 0.9), -1px -1px 1px rgba( var(--color-shadow), 0.06 ), inset 2px 2px 2px rgba( var(--color-shadow), 0.08), inset 3px 3px 4px rgba( var(--color-shadow), 0.08), inset 6px 6px 12px rgba( var(--color-shadow), 0.08), inset 8px 8px 16px rgba( var(--color-shadow), 0.08);
+}
+
+.drumkit-buttons button:nth-of-type(5) {
+    margin-left: 80px;
+}
+
+.drumkit-buttons button:nth-of-type(9) {
+    margin-left: 160px;
+}
+
+@keyframes keyAnim {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+/* chanels */
+.chanels {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.chanelContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.recordBtn, .playBtn {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: 0;
+    box-shadow: inset 1px 1px 1px rgba( var(--color-light), 1 ), -2px -2px 2px rgba( var(--color-light), 0.9), -4px -4px 6px rgba( var(--color-light), 0.9), -8px -8px 16px rgba( var(--color-light), 0.9), -12px -12px 24px rgba( var(--color-light), 0.9), inset -1px -1px 1px rgba( var(--color-shadow), 0.06 ), 2px 2px 2px rgba( var(--color-shadow), 0.08), 4px 4px 6px rgba( var(--color-shadow), 0.08), 8px 8px 16px rgba( var(--color-shadow), 0.08), 12px 12px 24px rgba( var(--color-shadow), 0.08);
+    position: relative;
+    outline: 0;
+    flex-shrink: 0;
+}
+
+.recordBtn:focus, .recordBtn:active, .playBtn:focus, .playBtn:active {
+    box-shadow: 1px 1px 1px rgba( var(--color-light), 1 ), inset -2px -2px 2px rgba( var(--color-light), 0.9), inset -3px -3px 4px rgba( var(--color-light), 0.9), inset -6px -6px 12px rgba( var(--color-light), 0.9), inset -8px -8px 16px rgba( var(--color-light), 0.9), -1px -1px 1px rgba( var(--color-shadow), 0.06 ), inset 2px 2px 2px rgba( var(--color-shadow), 0.08), inset 3px 3px 4px rgba( var(--color-shadow), 0.08), inset 6px 6px 12px rgba( var(--color-shadow), 0.08), inset 8px 8px 16px rgba( var(--color-shadow), 0.08);
+}
+
+.recordBtn::after {
+    position: absolute;
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #c52424;
+    left: calc(50% - 6px);
+    top: calc(50% - 6px);
+}
+
+.playBtn::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-left: 16px solid #c52424;
+    border-bottom: 8px solid transparent;
+    left: calc(50% - 6px);
+    top: calc(50% - 7px);
+}
+
+.playBtn[disabled], .recordBtn[disabled] {
+    box-shadow: none;
+    background: #dadce0;
+}
+
+.playBtn[disabled]::after {
+    border-left: 16px solid grey;
+}
+
+.recordBtn[disabled]::after {
+    background: grey;
+}
+
+.playBtn.stopBtn::after {
+    border: 7px solid #c52424;
+}
+
+/* progress bar */
+.progressBar {
+    width: 100%;
+    height: 10px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+}
+
+.progressBar span {
+    position: absolute;
+    height: 4px;
+    background: #27bfc6;
+    top: 3px;
+    left: 5px;
+    right: 5px;
+    transform-origin: left;
+    transform: scaleX(0);
+    /* animation: progressBarAnim 5s forwards linear; */
+}
+
+.timeMoment {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 2px;
+    background: #49abff;
+}
+
+@keyframes progressBarAnim {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
