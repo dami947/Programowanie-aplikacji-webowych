@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Cw-04 - notatki</title>
+</head>
+
+<body>
+  <main>
+    <div class="main" id="main">
+      <div class="searchbar">
+        <input id="search" type="text" placeholder="Filter notes" required autocomplete="off" />
+        <button class="searchbar-button" id="search-clear"><img src="./assets/erase.svg" /></button>
+      </div>
+      <header class="toolbar">
+        <div class="toolbar-buttons" id="toolbarTags">
+          <!-- <button class="toolbar-button toolbar-button--active">
+            All
+          </button> -->
+          <!-- tag buttons here -->
+        </div>
+        <button class="toolbar-button newNote-button" id="add-note">
+          Add note
+          <img src="assets/plus.svg" />
+        </button>
+      </header>
+      <section class="content">
+        <div class="notes notes--pinned" id="notes-pinned">
+          <!-- notes goes here -->
+        </div>
+        <div class="notes" id="notes-other">
+          <!-- notes goes here -->
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- modal layout defined here to avoid unneccesary JS -->
+  <div class="modal" id="modal">
+    <form class="modal-window">
+      <div class="modal-form" id="modal-form">
+        <div class="modal-form-container">
+          <input id="note-title" type="text" placeholder="Note title" required />
+          <button id="notif-btn" class="modal-small-btn" type="button">
+            <img src="assets/bell.svg"/>
+          </button>
+        </div>
+        <div class="modal-form-container">
+          <textarea id="note-content" placeholder="Note content" rows="10"></textarea>
+          <div class="notification-content" id="notification-content">
+            <input type="date" id="note-notif-date"/>
+            <input type="time" id="note-notif-time"/>
+          </div>
+        </div>
+        <div class="modal-color-picker" id="color-picker">
+        </div>
+        <label class="modal-toggle">
+          <input id="note-pinned" type="checkbox" />
+          <span class="styler"></span>
+          Pinned
+        </label>
+        <div class="modal-tags">
+          <div class="modal-existing-tags" id="current-tags"></div>
+          <div class="note-tag-container">
+            <input type="text" id="note-newTag" list="note-tags" placeholder="Add new tag" autocomplete="off"/>
+            <datalist id="note-tags">
+              <!-- <option value="Maine">
+              <option value="Maryland">
+              <option value="Massachusetts"> -->
+            </datalist>
+            <button id="add-tag" class="modal-small-btn modal-small-btn--active" type="button">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-buttons">
+        <button type="button" id="close-modal-btn" class="modal-button">Close</button>
+        <button type="submit" id="save-modal-btn" class="modal-button modal-button-save">Save</button>
+      </div>
+    </form>
+  </div>
+  <img class="bg-illustration" src="assets/illustration.svg" />
+  <script src="index.js"></script>
+</body>
+
+</html>
