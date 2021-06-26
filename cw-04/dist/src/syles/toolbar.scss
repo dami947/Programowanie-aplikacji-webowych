@@ -1,0 +1,90 @@
+@import 'variables';
+
+.toolbar {
+    display: flex;
+    width: 100%;
+    &-buttons {
+        flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    &-button {
+        background: $unactive-color;
+        color: $font-color;
+        border: 0;
+        padding: 0.7rem 3rem 0.7rem 0.8rem;
+        line-height: 1;
+        cursor: pointer;
+        &:hover {
+            background: $unactive-color-hover;
+        }
+
+        &--active {
+            background: $action-color--alt;
+            &:hover {
+                background: $action-color--alt-hover;
+            }
+        }
+    }
+
+    .newNote-button {
+        background: $action-color;
+        display: flex;
+        align-items: center;
+        padding: 0.7rem 1rem 0.7rem 0.8rem;
+        &:hover {
+            background: $action-color-hover;
+        }
+
+        img {
+            width: 1rem;
+            margin-left: 1rem;
+        }
+    }
+}
+
+.searchbar {
+    width: 100%;
+    position: relative;
+    display: flex;
+    input {
+        background: #262626;
+        flex: 1;
+        border: 2px solid transparent;
+        color: $font-color;
+        transition: 0.2s;
+        height: 2.5rem;
+        padding: 1rem;
+        font-size: 0.9rem;
+        box-sizing: border-box;
+        &:hover,
+        &:focus {
+            outline: 0;
+            border: 2px solid $font-color;
+        }
+        &:valid {
+            + .searchbar-button {
+                display: block;
+            }
+        }
+    }
+
+    &-button {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2.5rem;
+        width: 2.5rem;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        &:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        img {
+            height: 1rem;
+        }
+    }
+}
